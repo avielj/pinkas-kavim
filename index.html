@@ -5,76 +5,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>מעקב מחירי טיסות ✈️</title>
 <style>
-  * { box-sizing: border-box; }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
   body { font-family: -apple-system, "Segoe UI", Arial, sans-serif;
-         background: #f4f6fb; color: #1c2333; margin: 0; padding: 16px;
-         line-height: 1.6; }
-  .wrap { max-width: 720px; margin: 0 auto; }
-  h1 { font-size: 1.6rem; margin: 0.2em 0; }
-  .stamp { color: #5b6478; font-size: 0.9rem; margin-bottom: 1em; }
-  .card { background: #fff; border-radius: 14px; padding: 18px;
-          margin-bottom: 16px; box-shadow: 0 2px 8px rgba(20,30,60,.07); }
-  .card h2 { margin-top: 0; font-size: 1.2rem; }
-  table { width: 100%; border-collapse: collapse; margin-top: 8px; }
-  th, td { text-align: right; padding: 8px 6px; border-bottom: 1px solid #eef0f6; }
-  th { color: #5b6478; font-weight: 600; font-size: 0.9rem; }
-  .num { font-variant-numeric: tabular-nums; font-weight: 700; }
-  .note { font-size: 0.9rem; color: #5b6478; }
-  .tag { display: inline-block; background: #e8f3ff; color: #0b5cad;
-         border-radius: 999px; padding: 2px 10px; font-size: 0.8rem; }
-  .hist { border-right: 3px solid #0b5cad; padding: 6px 12px; margin: 10px 0;
-          background: #f8fbff; border-radius: 0 8px 8px 0; }
-  .hist-date { font-weight: 700; }
-  .hist-body { font-size: 0.95rem; }
+         background: #eef1f7; color: #1c2333; line-height: 1.6;
+         padding-bottom: 32px; }
+  .hero { background: linear-gradient(135deg, #0b5cad, #083b6e);
+          color: #fff; padding: 34px 20px 28px; text-align: center; }
+  .hero h1 { font-size: 1.7rem; margin-bottom: 6px; }
+  .hero .sub { opacity: .85; font-size: .95rem; }
+  .wrap { max-width: 720px; margin: -18px auto 0; padding: 0 14px; }
+  .card { background: #fff; border-radius: 16px; padding: 20px;
+          margin-bottom: 16px; box-shadow: 0 4px 18px rgba(15,35,70,.09); }
+  .card h2 { font-size: 1.15rem; margin-bottom: 10px; }
+  table { width: 100%; border-collapse: collapse; }
+  th, td { text-align: right; padding: 10px 6px;
+           border-bottom: 1px solid #eef0f6; }
+  th { color: #5b6478; font-weight: 600; font-size: .85rem; }
+  tr:last-child td { border-bottom: none; }
+  tr.route td { border-bottom: 1px solid #eef0f6; padding-top: 0;
+                font-size: .82rem; color: #5b6478; }
+  .num { font-variant-numeric: tabular-nums; font-weight: 700;
+         white-space: nowrap; }
+  .air { font-size: .78rem; color: #5b6478; font-weight: 400; }
+  .note { font-size: .88rem; color: #5b6478; margin-top: 10px; }
   .kipur { background: #fff8e6; border: 1px solid #f0dfae; }
-  ul { padding-right: 1.2em; }
+  .kipur ul { padding-right: 1.2em; }
+  .kipur li { margin-bottom: 6px; }
+  .chart { width: 100%; height: auto; display: block; margin-top: 6px; }
+  .grid { stroke: #e6eaf2; stroke-width: 1; }
+  .ylab { font-size: 11px; fill: #8a93a8; }
+  .xlab { font-size: 11px; fill: #8a93a8; }
+  .legend { display: flex; flex-wrap: wrap; gap: 8px 14px; margin-top: 8px; }
+  .leg { font-size: .82rem; color: #3c4458; display: inline-flex;
+         align-items: center; gap: 6px; }
+  .leg i { width: 14px; height: 4px; border-radius: 2px;
+           display: inline-block; }
+  .foot { text-align: center; color: #8a93a8; font-size: .82rem;
+          margin-top: 18px; padding: 0 20px; }
+  .best { color: #0b7a3e; font-weight: 700; }
 </style>
 </head>
 <body>
+<div class="hero">
+  <h1>✈️ מעקב מחירי טיסות</h1>
+  <div class="sub">תל אביב ⇄ מיאמי · אוקטובר 2027 · מחיר לראש, הלוך ושוב</div>
+  <div class="sub">הסריקה האחרונה רצה: 21.10.2026 10:00</div>
+</div>
 <div class="wrap">
 
-<h1>✈️ מעקב מחירי טיסות — אוקטובר 2027</h1>
-<div class="stamp">הסריקה האחרונה רצה: 21.10.2026 09:51</div>
-
 <div class="card">
-  <h2>תל אביב ⇄ מיאמי — הלוך ושוב <span class="tag">2 מבוגרים + 2 ילדים + תינוק</span></h2>
-  <p class="note">מחירי הלוך־ושוב בלבד. Oct 13 shown as closest published return; final return is Oct 23 evening or Oct 24</p>
+  <h2>💺 מחיר לראש לפי תאריך יציאה</h2>
   <table>
-    <tr><th>תאריך יציאה</th><th>סה״כ</th><th>חברת תעופה</th></tr>
-    <tr><td>יציאה 7.10</td><td class="num">$4,071</td><td>LOT</td></tr><tr><td>יציאה 8.10</td><td class="num">$3,943</td><td>LOT ⭐ הזול ביותר</td></tr><tr><td>יציאה 12.10</td><td class="num">$4,514</td><td>Lufthansa</td></tr>
+    <tr><th></th><th>מבוגר</th><th>ילד</th><th>תינוק</th></tr>
+    <tr><td><b>יציאה 7.10</b> <span class="air">ITA</span></td><td class="num">$1,012</td><td class="num">$1,002</td><td class="num">$101</td></tr><tr class="route"><td colspan="4">הלוך: TLV 08:00 → FCO 10:45 (ITA AZ0815) · FCO 10:35 → MIA 16:00 (ITA AZ0630) · עצירה: FCO · חזור: MIA 19:45 → FCO 11:55 (ITA AZ0631) · FCO 09:10 → TLV 13:30 (ITA AZ0806) · עצירה: FCO</td></tr><tr><td><b>יציאה 8.10</b> <span class="air">ITA</span></td><td class="num">$1,012</td><td class="num">$1,002</td><td class="num">$101</td></tr><tr class="route"><td colspan="4">הלוך: TLV 08:00 → FCO 10:45 (ITA AZ0815) · FCO 10:35 → MIA 16:00 (ITA AZ0630) · עצירה: FCO · חזור: MIA 19:45 → FCO 11:55 (ITA AZ0631) · FCO 09:10 → TLV 13:30 (ITA AZ0806) · עצירה: FCO</td></tr><tr><td><b>יציאה 9.10</b> <span class="air">ITA</span></td><td class="num">$1,012</td><td class="num">$1,002</td><td class="num">$101</td></tr><tr class="route"><td colspan="4">הלוך: TLV 08:00 → FCO 10:45 (ITA AZ0815) · FCO 10:35 → MIA 15:15 (ITA AZ0630) · עצירה: FCO · חזור: MIA 19:45 → FCO 11:55 (ITA AZ0631) · FCO 09:10 → TLV 13:30 (ITA AZ0806) · עצירה: FCO</td></tr><tr><td><b>יציאה 10.10</b> <span class="air">ITA</span></td><td class="num">$1,012</td><td class="num">$1,002</td><td class="num">$101</td></tr><tr class="route"><td colspan="4">הלוך: TLV 05:15 → FCO 08:00 (ITA AZ0809) · FCO 10:35 → MIA 15:15 (ITA AZ0630) · עצירה: FCO · חזור: MIA 19:45 → FCO 11:55 (ITA AZ0631) · FCO 09:10 → TLV 13:30 (ITA AZ0806) · עצירה: FCO</td></tr><tr><td><b>יציאה 11.10</b> <span class="air">SWISS</span></td><td class="num">$1,170</td><td class="num">$1,019</td><td class="num">$117</td></tr><tr class="route"><td colspan="4">הלוך: TLV 18:15 → ZRH 21:35 (SWISS LX0253) · ZRH 13:00 → MIA 17:25 (SWISS LX0064) · עצירה: ZRH · חזור: MIA 19:40 → ZRH 10:50 (SWISS LX0065) · ZRH 22:40 → TLV 03:35 (SWISS LX0256) · עצירה: ZRH</td></tr><tr><td><b>יציאה 12.10</b> <span class="air">SWISS</span></td><td class="num">$1,170</td><td class="num">$1,019</td><td class="num">$117</td></tr><tr class="route"><td colspan="4">הלוך: TLV 04:50 → ZRH 08:10 (SWISS LX0257) · ZRH 13:00 → MIA 17:25 (SWISS LX0064) · עצירה: ZRH · חזור: MIA 19:40 → ZRH 10:50 (SWISS LX0065) · ZRH 22:40 → TLV 03:35 (SWISS LX0256) · עצירה: ZRH</td></tr>
   </table>
-</div>
-
-<div class="card">
-  <h2>מחיר לאדם</h2>
-  <p class="note">LOT RT out 2027-10-08 back 2027-10-13 (interim closest published return)</p>
-  <table>
-    <tr><th></th><th>מחיר</th></tr>
-    <tr><td>מבוגר</td><td class="num">$1,016</td></tr><tr><td>ילד</td><td class="num">$895</td></tr><tr><td>תינוק (על הברכיים)</td><td class="num">$119</td></tr>
-  </table>
+  <p class="note">חזרה 13.10 — הקרובה ביותר שפורסמה (טרם פורסם 24.10). היעד: 23.10 בערב או 24.10. המחירים הם צילומי מצב חיים ואינם נשמרים.</p>
 </div>
 
 <div class="card kipur">
   <h2>🕯️ לוח כיפור</h2>
   <ul>
-    <li><b>10.10 (ערב כיפור) ו־11.10 (כיפור עצמו)</b> — אם יופיע מחיר זול, סוגרים:
-        חברות התעופה מבטלות מדי שנה טיסות בחג ומציעות לבחור תאריך אחר.</li>
+    <li><b>9.10 (שבת), 10.10 (ערב כיפור), 11.10 (כיפור)</b> — אם יופיע מחיר
+        זול, סוגרים: חברות התעופה מבטלות מדי שנה טיסות בשבת/חג ומציעות
+        לבחור תאריך אחר.</li>
     <li><b>12.10</b> — תאריך היציאה הנקי הראשון אחרי החג.</li>
     <li><b>חזרה:</b> 23.10 בערב (מוצאי שבת) או 24.10 — לא מאוחר יותר.</li>
   </ul>
 </div>
 
 <div class="card">
-  <h2>📈 היסטוריית מחירים</h2>
-  <p class="note">ההיסטוריה רק גדלה — נקודות קיימות לעולם לא נמחקות.</p>
-  <div class="hist"><div class="hist-date">20 באוקטובר 2026</div><div class="hist-body">יציאה 7.10: $4,071 (LOT) · יציאה 8.10: $3,943 (LOT) · יציאה 12.10: $4,514 (Lufthansa) · לאדם: מבוגר $1,016 / ילד $895 / תינוק $119</div></div>
+  <h2>📈 היסטוריית מחירים — מבוגר לראש</h2>
+  <svg viewBox="0 0 640 300" class="chart" dir="ltr" role="img" aria-label="גרף היסטוריית מחירים">
+<line x1="56" y1="256.0" x2="624" y2="256.0" class="grid"/><text x="48" y="260.0" class="ylab" text-anchor="end">$988</text>
+<line x1="56" y1="196.5" x2="624" y2="196.5" class="grid"/><text x="48" y="200.5" class="ylab" text-anchor="end">$1,040</text>
+<line x1="56" y1="137.0" x2="624" y2="137.0" class="grid"/><text x="48" y="141.0" class="ylab" text-anchor="end">$1,091</text>
+<line x1="56" y1="77.5" x2="624" y2="77.5" class="grid"/><text x="48" y="81.5" class="ylab" text-anchor="end">$1,142</text>
+<line x1="56" y1="18.0" x2="624" y2="18.0" class="grid"/><text x="48" y="22.0" class="ylab" text-anchor="end">$1,194</text>
+<text x="56.0" y="286" class="xlab" text-anchor="middle">20.10</text>
+<text x="624.0" y="286" class="xlab" text-anchor="middle">21.10</text>
+<polyline points="624.0,228.5" fill="none" stroke="#0b5cad" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="624.0" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 21.10 · $1,012</title></circle>
+<polyline points="56.0,223.9 624.0,228.5" fill="none" stroke="#e07b39" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="56.0" cy="223.9" r="4" fill="#e07b39"><title>יציאה 8.10 · 20.10 · $1,016</title></circle>
+<circle cx="624.0" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 21.10 · $1,012</title></circle>
+<polyline points="624.0,228.5" fill="none" stroke="#2ca66a" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="624.0" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 21.10 · $1,012</title></circle>
+<polyline points="624.0,228.5" fill="none" stroke="#8e44ad" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="624.0" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 21.10 · $1,012</title></circle>
+<polyline points="624.0,45.5" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="624.0" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 21.10 · $1,170</title></circle>
+<polyline points="624.0,45.5" fill="none" stroke="#16a3a3" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="624.0" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 21.10 · $1,170</title></circle>
+</svg>
+<div class="legend">
+<span class="leg"><i style="background:#0b5cad"></i>יציאה 7.10</span>
+<span class="leg"><i style="background:#e07b39"></i>יציאה 8.10</span>
+<span class="leg"><i style="background:#2ca66a"></i>יציאה 9.10</span>
+<span class="leg"><i style="background:#8e44ad"></i>יציאה 10.10</span>
+<span class="leg"><i style="background:#c0392b"></i>יציאה 11.10</span>
+<span class="leg"><i style="background:#16a3a3"></i>יציאה 12.10</span>
+</div>
+  <p class="note">ההיסטוריה רק גדלה — מדידות קיימות לעולם לא נמחקות.</p>
 </div>
 
-<div class="card">
-  <p class="note">הדף מתעדכן כל יום אוטומטית. המחירים הם צילומי מצב חיים —
-  אינם נשמרים ויש לאשר בעת ההזמנה.</p>
 </div>
-
-</div>
+<div class="foot">הדף מתעדכן כל יום אוטומטית · נתונים: סריקות Duffel</div>
 </body>
 </html>
