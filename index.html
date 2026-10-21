@@ -29,6 +29,9 @@
   .f-date { font-weight: 700; font-size: 1rem; }
   .f-date .wd { font-weight: 400; color: #5b6478; font-size: .85rem; }
   .f-air { color: #5b6478; font-size: .9rem; }
+  .kippur-note { background: #fff8e6; border: 1px solid #f0dfae;
+                 border-radius: 8px; padding: 6px 10px; font-size: .85rem;
+                 margin-bottom: 8px; }
   .leg-row { border-top: 1px solid #eef0f6; padding: 10px 0; }
   .leg-row:first-of-type { border-top: none; }
   .leg-main { display: flex; gap: 10px; align-items: baseline; }
@@ -80,7 +83,7 @@
 <header class="topbar">
   <h1>✈️ מעקב מחירי טיסות</h1>
   <div class="sub">תל אביב ⇄ מיאמי · אוקטובר 2027 · מחיר לראש, הלוך ושוב ·
-       הסריקה האחרונה: 21.10.2026 10:07</div>
+       הסריקה האחרונה: 21.10.2026 10:17</div>
 </header>
 <div class="sortbar" id="sortbar">
   <span>מיין לפי:</span>
@@ -95,6 +98,7 @@
         <div class="f-air">ITA</div>
       </div>
       
+      
       <div class="leg-row" data-dir="הלוך">
         <div class="leg-main">
           <span class="times">08:00 – 16:00</span>
@@ -104,7 +108,7 @@
           <span class="dur">39:00</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">08:00</span><span class="ap">TLV</span><span class="fl">ITA AZ0815</span><span class="t">10:45</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630</span><span class="t">16:00</span><span class="ap">MIA</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">08:00</span><span class="ap">TLV</span><span class="fl">ITA AZ0815 · 3:45 שעות</span><span class="t">10:45</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 23:50 שעות</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630 · 11:25 שעות</span><span class="t">16:00</span><span class="ap">MIA</span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
         <div class="leg-main">
@@ -115,7 +119,7 @@
           <span class="dur">34:45</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631 · 10:10 שעות</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 21:15 שעות</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806 · 3:20 שעות</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
       </div>
       <div class="f-foot">
         <button class="details-btn" type="button">פירוט המסלול</button>
@@ -131,6 +135,7 @@
         <div class="f-air">ITA</div>
       </div>
       
+      
       <div class="leg-row" data-dir="הלוך">
         <div class="leg-main">
           <span class="times">08:00 – 16:00</span>
@@ -140,7 +145,7 @@
           <span class="dur">39:00</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">08:00</span><span class="ap">TLV</span><span class="fl">ITA AZ0815</span><span class="t">10:45</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630</span><span class="t">16:00</span><span class="ap">MIA</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">08:00</span><span class="ap">TLV</span><span class="fl">ITA AZ0815 · 3:45 שעות</span><span class="t">10:45</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 23:50 שעות</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630 · 11:25 שעות</span><span class="t">16:00</span><span class="ap">MIA</span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
         <div class="leg-main">
@@ -151,7 +156,7 @@
           <span class="dur">34:45</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631 · 10:10 שעות</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 21:15 שעות</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806 · 3:20 שעות</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
       </div>
       <div class="f-foot">
         <button class="details-btn" type="button">פירוט המסלול</button>
@@ -167,6 +172,7 @@
         <div class="f-air">ITA</div>
       </div>
       
+      
       <div class="leg-row" data-dir="הלוך">
         <div class="leg-main">
           <span class="times">08:00 – 15:15</span>
@@ -176,7 +182,7 @@
           <span class="dur">38:15</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">08:00</span><span class="ap">TLV</span><span class="fl">ITA AZ0815</span><span class="t">10:45</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630</span><span class="t">15:15</span><span class="ap">MIA</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">08:00</span><span class="ap">TLV</span><span class="fl">ITA AZ0815 · 3:45 שעות</span><span class="t">10:45</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 23:50 שעות</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630 · 10:40 שעות</span><span class="t">15:15</span><span class="ap">MIA</span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
         <div class="leg-main">
@@ -187,7 +193,7 @@
           <span class="dur">34:45</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631 · 10:10 שעות</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 21:15 שעות</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806 · 3:20 שעות</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
       </div>
       <div class="f-foot">
         <button class="details-btn" type="button">פירוט המסלול</button>
@@ -202,6 +208,7 @@
         <div class="f-date">יציאה 10.10 <span class="wd">· יום ראשון</span></div>
         <div class="f-air">ITA</div>
       </div>
+      <div class="kippur-note">🕯️ יציאה בערב כיפור (כניסת החג 17:33)</div>
       
       <div class="leg-row" data-dir="הלוך">
         <div class="leg-main">
@@ -212,7 +219,7 @@
           <span class="dur">17:00</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">05:15</span><span class="ap">TLV</span><span class="fl">ITA AZ0809</span><span class="t">08:00</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630</span><span class="t">15:15</span><span class="ap">MIA</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">05:15</span><span class="ap">TLV</span><span class="fl">ITA AZ0809 · 3:45 שעות</span><span class="t">08:00</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 2:35 שעות</div><div class="seg"><span class="t">10:35</span><span class="ap">FCO</span><span class="fl">ITA AZ0630 · 10:40 שעות</span><span class="t">15:15</span><span class="ap">MIA</span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
         <div class="leg-main">
@@ -223,7 +230,7 @@
           <span class="dur">34:45</span>
           <span class="stops">עצירה 1 (FCO)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">19:45</span><span class="ap">MIA</span><span class="fl">ITA AZ0631 · 10:10 שעות</span><span class="t">11:55</span><span class="ap">FCO</span></div><div class="layover">עצירה ב־FCO · 21:15 שעות</div><div class="seg"><span class="t">09:10</span><span class="ap">FCO</span><span class="fl">ITA AZ0806 · 3:20 שעות</span><span class="t">13:30</span><span class="ap">TLV</span></div></div>
       </div>
       <div class="f-foot">
         <button class="details-btn" type="button">פירוט המסלול</button>
@@ -238,6 +245,7 @@
         <div class="f-date">יציאה 11.10 <span class="wd">· יום שני</span></div>
         <div class="f-air">Lufthansa</div>
       </div>
+      <div class="kippur-note">🕯️ יציאה ביום כיפור (צאת החג 18:48)</div>
       
       <div class="leg-row" data-dir="הלוך">
         <div class="leg-main">
@@ -248,7 +256,7 @@
           <span class="dur">30:10</span>
           <span class="stops">עצירה 1 (ZRH)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">18:15</span><span class="ap">TLV</span><span class="fl">SWISS LX0253</span><span class="t">21:35</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH</div><div class="seg"><span class="t">13:00</span><span class="ap">ZRH</span><span class="fl">SWISS LX0064</span><span class="t">17:25</span><span class="ap">MIA</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">18:15</span><span class="ap">TLV</span><span class="fl">SWISS LX0253 · 4:20 שעות</span><span class="t">21:35</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH · 15:25 שעות</div><div class="seg"><span class="t">13:00</span><span class="ap">ZRH</span><span class="fl">SWISS LX0064 · 10:25 שעות</span><span class="t">17:25</span><span class="ap">MIA</span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
         <div class="leg-main">
@@ -259,7 +267,7 @@
           <span class="dur">24:55</span>
           <span class="stops">עצירה 1 (ZRH)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">19:40</span><span class="ap">MIA</span><span class="fl">SWISS LX0065</span><span class="t">10:50</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH</div><div class="seg"><span class="t">22:40</span><span class="ap">ZRH</span><span class="fl">SWISS LX0256</span><span class="t">03:35</span><span class="ap">TLV</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">19:40</span><span class="ap">MIA</span><span class="fl">SWISS LX0065 · 9:10 שעות</span><span class="t">10:50</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH · 11:50 שעות</div><div class="seg"><span class="t">22:40</span><span class="ap">ZRH</span><span class="fl">SWISS LX0256 · 3:55 שעות</span><span class="t">03:35</span><span class="ap">TLV</span></div></div>
       </div>
       <div class="f-foot">
         <button class="details-btn" type="button">פירוט המסלול</button>
@@ -275,6 +283,7 @@
         <div class="f-air">Lufthansa</div>
       </div>
       
+      
       <div class="leg-row" data-dir="הלוך">
         <div class="leg-main">
           <span class="times">04:50 – 17:25</span>
@@ -284,7 +293,7 @@
           <span class="dur">19:35</span>
           <span class="stops">עצירה 1 (ZRH)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">04:50</span><span class="ap">TLV</span><span class="fl">SWISS LX0257</span><span class="t">08:10</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH</div><div class="seg"><span class="t">13:00</span><span class="ap">ZRH</span><span class="fl">SWISS LX0064</span><span class="t">17:25</span><span class="ap">MIA</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">04:50</span><span class="ap">TLV</span><span class="fl">SWISS LX0257 · 4:20 שעות</span><span class="t">08:10</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH · 4:50 שעות</div><div class="seg"><span class="t">13:00</span><span class="ap">ZRH</span><span class="fl">SWISS LX0064 · 10:25 שעות</span><span class="t">17:25</span><span class="ap">MIA</span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
         <div class="leg-main">
@@ -295,7 +304,7 @@
           <span class="dur">24:55</span>
           <span class="stops">עצירה 1 (ZRH)</span>
         </div>
-        <div class="seg-detail" hidden><div class="seg"><span class="t">19:40</span><span class="ap">MIA</span><span class="fl">SWISS LX0065</span><span class="t">10:50</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH</div><div class="seg"><span class="t">22:40</span><span class="ap">ZRH</span><span class="fl">SWISS LX0256</span><span class="t">03:35</span><span class="ap">TLV</span></div></div>
+        <div class="seg-detail" hidden><div class="seg"><span class="t">19:40</span><span class="ap">MIA</span><span class="fl">SWISS LX0065 · 9:10 שעות</span><span class="t">10:50</span><span class="ap">ZRH</span></div><div class="layover">עצירה ב־ZRH · 11:50 שעות</div><div class="seg"><span class="t">22:40</span><span class="ap">ZRH</span><span class="fl">SWISS LX0256 · 3:55 שעות</span><span class="t">03:35</span><span class="ap">TLV</span></div></div>
       </div>
       <div class="f-foot">
         <button class="details-btn" type="button">פירוט המסלול</button>
