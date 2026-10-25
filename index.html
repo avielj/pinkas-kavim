@@ -85,6 +85,29 @@
              padding: 8px 6px; text-align: right; }
   .airtable th { color: #0b5cad; white-space: nowrap; }
   .airtable td { font-variant-numeric: tabular-nums; }
+  /* Google-Flights-style look */
+  body { background: #f8f9fa; }
+  .topbar h1 { color: #202124; }
+  .flight { box-shadow: 0 1px 2px rgba(60,64,67,.15); }
+  .flight:hover { box-shadow: 0 2px 8px rgba(60,64,67,.2); }
+  .times { font-size: 1.25rem; }
+  .route-viz { display: flex; align-items: center; gap: 6px;
+               margin: 8px 0 2px; }
+  .route-viz .dot { width: 8px; height: 8px; border-radius: 50%;
+                    background: #1a73e8; flex: none; }
+  .route-viz .line { flex: 1; height: 2px; background: #dadce0;
+                     border-radius: 2px; }
+  .route-viz .viz-label { font-size: .82rem; color: #5f6368;
+                          white-space: nowrap; }
+  .badge { display: inline-block; background: #e6f4ea; color: #188038;
+           border-radius: 999px; padding: 2px 10px; font-size: .78rem;
+           font-weight: 700; margin-inline-start: 8px; }
+  .p-adult { color: #188038; }
+  .stops { color: #5f6368; }
+  .airtable tbody tr:hover { background: #f8f9fa; }
+  .airtable td:nth-child(3) { color: #188038; font-weight: 700; }
+  .airtable th { color: #5f6368; font-weight: 600; }
+  .sortbar button.on { background: #1a73e8; border-color: #1a73e8; }
   .foot { text-align: center; color: #8a93a8; font-size: .8rem; margin-top: 16px; }
 </style>
 </head>
@@ -92,7 +115,7 @@
 <header class="topbar">
   <h1>✈️ מעקב מחירי טיסות</h1>
   <div class="sub">תל אביב ⇄ מיאמי · אוקטובר 2027 · מחיר לראש, הלוך ושוב ·
-       הסריקה האחרונה: 25.10.2026 09:06</div>
+       הסריקה האחרונה: 25.10.2026 09:16</div>
 </header>
 <div class="sortbar" id="sortbar">
   <span>מיין לפי:</span>
@@ -103,7 +126,7 @@
 
     <article class="flight" data-price="1012" data-dur="2340">
       <div class="f-head">
-        <div class="f-date">יציאה 7.10 <span class="wd">· יום חמישי</span></div>
+        <div class="f-date">יציאה 7.10 <span class="wd">· יום חמישי</span><span class="badge">הזול ביותר</span></div>
         <div class="f-air">ITA</div>
       </div>
       
@@ -113,10 +136,7 @@
           <span class="times">08:00 – 16:00</span>
           <span class="route">TLV – MIA</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">39:00</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 39:00</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>08:00</bdi></span><span class="ap"><bdi>TLV</bdi></span><span class="fl"><bdi>ITA AZ0815</bdi> · <bdi>3:45</bdi> שעות</span><span class="t"><bdi>10:45</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>23:50</bdi> שעות</div><div class="seg"><span class="t"><bdi>10:35</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0630</bdi> · <bdi>11:25</bdi> שעות</span><span class="t"><bdi>16:00</bdi></span><span class="ap"><bdi>MIA</bdi></span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
@@ -124,10 +144,7 @@
           <span class="times">19:45 – 13:30</span>
           <span class="route">MIA – TLV</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">34:45</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 34:45</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>19:45</bdi></span><span class="ap"><bdi>MIA</bdi></span><span class="fl"><bdi>ITA AZ0631</bdi> · <bdi>10:10</bdi> שעות</span><span class="t"><bdi>11:55</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>21:15</bdi> שעות</div><div class="seg"><span class="t"><bdi>09:10</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0806</bdi> · <bdi>3:20</bdi> שעות</span><span class="t"><bdi>13:30</bdi></span><span class="ap"><bdi>TLV</bdi></span></div></div>
       </div>
       <div class="f-foot">
@@ -144,7 +161,7 @@
     </article>
     <article class="flight" data-price="1012" data-dur="2340">
       <div class="f-head">
-        <div class="f-date">יציאה 8.10 <span class="wd">· יום שישי</span></div>
+        <div class="f-date">יציאה 8.10 <span class="wd">· יום שישי</span><span class="badge">הזול ביותר</span></div>
         <div class="f-air">ITA</div>
       </div>
       
@@ -154,10 +171,7 @@
           <span class="times">08:00 – 16:00</span>
           <span class="route">TLV – MIA</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">39:00</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 39:00</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>08:00</bdi></span><span class="ap"><bdi>TLV</bdi></span><span class="fl"><bdi>ITA AZ0815</bdi> · <bdi>3:45</bdi> שעות</span><span class="t"><bdi>10:45</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>23:50</bdi> שעות</div><div class="seg"><span class="t"><bdi>10:35</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0630</bdi> · <bdi>11:25</bdi> שעות</span><span class="t"><bdi>16:00</bdi></span><span class="ap"><bdi>MIA</bdi></span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
@@ -165,10 +179,7 @@
           <span class="times">19:45 – 13:30</span>
           <span class="route">MIA – TLV</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">34:45</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 34:45</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>19:45</bdi></span><span class="ap"><bdi>MIA</bdi></span><span class="fl"><bdi>ITA AZ0631</bdi> · <bdi>10:10</bdi> שעות</span><span class="t"><bdi>11:55</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>21:15</bdi> שעות</div><div class="seg"><span class="t"><bdi>09:10</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0806</bdi> · <bdi>3:20</bdi> שעות</span><span class="t"><bdi>13:30</bdi></span><span class="ap"><bdi>TLV</bdi></span></div></div>
       </div>
       <div class="f-foot">
@@ -185,7 +196,7 @@
     </article>
     <article class="flight" data-price="1012" data-dur="2295">
       <div class="f-head">
-        <div class="f-date">יציאה 9.10 <span class="wd">· יום שבת</span></div>
+        <div class="f-date">יציאה 9.10 <span class="wd">· יום שבת</span><span class="badge">הזול ביותר</span></div>
         <div class="f-air">ITA</div>
       </div>
       
@@ -195,10 +206,7 @@
           <span class="times">08:00 – 15:15</span>
           <span class="route">TLV – MIA</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">38:15</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 38:15</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>08:00</bdi></span><span class="ap"><bdi>TLV</bdi></span><span class="fl"><bdi>ITA AZ0815</bdi> · <bdi>3:45</bdi> שעות</span><span class="t"><bdi>10:45</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>23:50</bdi> שעות</div><div class="seg"><span class="t"><bdi>10:35</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0630</bdi> · <bdi>10:40</bdi> שעות</span><span class="t"><bdi>15:15</bdi></span><span class="ap"><bdi>MIA</bdi></span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
@@ -206,10 +214,7 @@
           <span class="times">19:45 – 13:30</span>
           <span class="route">MIA – TLV</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">34:45</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 34:45</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>19:45</bdi></span><span class="ap"><bdi>MIA</bdi></span><span class="fl"><bdi>ITA AZ0631</bdi> · <bdi>10:10</bdi> שעות</span><span class="t"><bdi>11:55</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>21:15</bdi> שעות</div><div class="seg"><span class="t"><bdi>09:10</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0806</bdi> · <bdi>3:20</bdi> שעות</span><span class="t"><bdi>13:30</bdi></span><span class="ap"><bdi>TLV</bdi></span></div></div>
       </div>
       <div class="f-foot">
@@ -226,7 +231,7 @@
     </article>
     <article class="flight" data-price="1012" data-dur="1020">
       <div class="f-head">
-        <div class="f-date">יציאה 10.10 <span class="wd">· יום ראשון</span></div>
+        <div class="f-date">יציאה 10.10 <span class="wd">· יום ראשון</span><span class="badge">הזול ביותר</span></div>
         <div class="f-air">ITA</div>
       </div>
       <div class="kippur-note">🕯️ יציאה בערב כיפור (כניסת החג 17:33)</div>
@@ -236,10 +241,7 @@
           <span class="times">05:15 – 15:15</span>
           <span class="route">TLV – MIA</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">17:00</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 17:00</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>05:15</bdi></span><span class="ap"><bdi>TLV</bdi></span><span class="fl"><bdi>ITA AZ0809</bdi> · <bdi>3:45</bdi> שעות</span><span class="t"><bdi>08:00</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>2:35</bdi> שעות</div><div class="seg"><span class="t"><bdi>10:35</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0630</bdi> · <bdi>10:40</bdi> שעות</span><span class="t"><bdi>15:15</bdi></span><span class="ap"><bdi>MIA</bdi></span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
@@ -247,10 +249,7 @@
           <span class="times">19:45 – 13:30</span>
           <span class="route">MIA – TLV</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">34:45</span>
-          <span class="stops">עצירה 1 (<bdi>FCO</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>FCO</bdi>) · 34:45</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>19:45</bdi></span><span class="ap"><bdi>MIA</bdi></span><span class="fl"><bdi>ITA AZ0631</bdi> · <bdi>10:10</bdi> שעות</span><span class="t"><bdi>11:55</bdi></span><span class="ap"><bdi>FCO</bdi></span></div><div class="layover">עצירה ב־<bdi>FCO</bdi> · <bdi>21:15</bdi> שעות</div><div class="seg"><span class="t"><bdi>09:10</bdi></span><span class="ap"><bdi>FCO</bdi></span><span class="fl"><bdi>ITA AZ0806</bdi> · <bdi>3:20</bdi> שעות</span><span class="t"><bdi>13:30</bdi></span><span class="ap"><bdi>TLV</bdi></span></div></div>
       </div>
       <div class="f-foot">
@@ -277,10 +276,7 @@
           <span class="times">18:15 – 17:25</span>
           <span class="route">TLV – MIA</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">30:10</span>
-          <span class="stops">עצירה 1 (<bdi>ZRH</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>ZRH</bdi>) · 30:10</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>18:15</bdi></span><span class="ap"><bdi>TLV</bdi></span><span class="fl"><bdi>SWISS LX0253</bdi> · <bdi>4:20</bdi> שעות</span><span class="t"><bdi>21:35</bdi></span><span class="ap"><bdi>ZRH</bdi></span></div><div class="layover">עצירה ב־<bdi>ZRH</bdi> · <bdi>15:25</bdi> שעות</div><div class="seg"><span class="t"><bdi>13:00</bdi></span><span class="ap"><bdi>ZRH</bdi></span><span class="fl"><bdi>SWISS LX0064</bdi> · <bdi>10:25</bdi> שעות</span><span class="t"><bdi>17:25</bdi></span><span class="ap"><bdi>MIA</bdi></span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
@@ -288,10 +284,7 @@
           <span class="times">19:40 – 03:35</span>
           <span class="route">MIA – TLV</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">24:55</span>
-          <span class="stops">עצירה 1 (<bdi>ZRH</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>ZRH</bdi>) · 24:55</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>19:40</bdi></span><span class="ap"><bdi>MIA</bdi></span><span class="fl"><bdi>SWISS LX0065</bdi> · <bdi>9:10</bdi> שעות</span><span class="t"><bdi>10:50</bdi></span><span class="ap"><bdi>ZRH</bdi></span></div><div class="layover">עצירה ב־<bdi>ZRH</bdi> · <bdi>11:50</bdi> שעות</div><div class="seg"><span class="t"><bdi>22:40</bdi></span><span class="ap"><bdi>ZRH</bdi></span><span class="fl"><bdi>SWISS LX0256</bdi> · <bdi>3:55</bdi> שעות</span><span class="t"><bdi>03:35</bdi></span><span class="ap"><bdi>TLV</bdi></span></div></div>
       </div>
       <div class="f-foot">
@@ -318,10 +311,7 @@
           <span class="times">04:50 – 17:25</span>
           <span class="route">TLV – MIA</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">19:35</span>
-          <span class="stops">עצירה 1 (<bdi>ZRH</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>ZRH</bdi>) · 19:35</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>04:50</bdi></span><span class="ap"><bdi>TLV</bdi></span><span class="fl"><bdi>SWISS LX0257</bdi> · <bdi>4:20</bdi> שעות</span><span class="t"><bdi>08:10</bdi></span><span class="ap"><bdi>ZRH</bdi></span></div><div class="layover">עצירה ב־<bdi>ZRH</bdi> · <bdi>4:50</bdi> שעות</div><div class="seg"><span class="t"><bdi>13:00</bdi></span><span class="ap"><bdi>ZRH</bdi></span><span class="fl"><bdi>SWISS LX0064</bdi> · <bdi>10:25</bdi> שעות</span><span class="t"><bdi>17:25</bdi></span><span class="ap"><bdi>MIA</bdi></span></div></div>
       </div>
       <div class="leg-row" data-dir="חזור">
@@ -329,10 +319,7 @@
           <span class="times">19:40 – 03:35</span>
           <span class="route">MIA – TLV</span>
         </div>
-        <div class="leg-meta">
-          <span class="dur">24:55</span>
-          <span class="stops">עצירה 1 (<bdi>ZRH</bdi>)</span>
-        </div>
+        <div class="route-viz"><i class="dot"></i><i class="line"></i><i class="dot"></i><span class="viz-label">עצירה 1 (<bdi>ZRH</bdi>) · 24:55</span></div>
         <div class="seg-detail" hidden><div class="seg"><span class="t"><bdi>19:40</bdi></span><span class="ap"><bdi>MIA</bdi></span><span class="fl"><bdi>SWISS LX0065</bdi> · <bdi>9:10</bdi> שעות</span><span class="t"><bdi>10:50</bdi></span><span class="ap"><bdi>ZRH</bdi></span></div><div class="layover">עצירה ב־<bdi>ZRH</bdi> · <bdi>11:50</bdi> שעות</div><div class="seg"><span class="t"><bdi>22:40</bdi></span><span class="ap"><bdi>ZRH</bdi></span><span class="fl"><bdi>SWISS LX0256</bdi> · <bdi>3:55</bdi> שעות</span><span class="t"><bdi>03:35</bdi></span><span class="ap"><bdi>TLV</bdi></span></div></div>
       </div>
       <div class="f-foot">
@@ -364,7 +351,7 @@
         <th data-sort="num">זמן טיסה חזור ↕</th>
         <th>חזרה שנבדקה</th><th>סטטוס</th>
       </tr></thead>
-      <tbody><tr><td>LOT</td><td>TLV ⇄ MIA</td><td data-v="970.37">$970.37</td><td data-v="1">עצירה 1 (WAW)</td><td data-v="2275">37:55</td><td data-v="1030">17:10</td><td>20.10</td><td>זמין · Economy Saver — 8kg cabin only, no checked bag, change for a fee, non-refundable</td></tr><tr><td>ITA</td><td>TLV ⇄ MIA</td><td data-v="985.37">$985.37</td><td data-v="1">עצירה 1 (FCO)</td><td data-v="1020">17:00</td><td data-v="1055">17:35</td><td>20.10</td><td>זמין · Economy Comfort</td></tr><tr><td>SWISS</td><td>TLV ⇄ MIA</td><td data-v="1170.97">$1,170.97</td><td data-v="1">עצירה 1 (ZRH)</td><td data-v="1175">19:35</td><td data-v="860">14:20</td><td>20.10</td><td>זמין · Economy Comfort Plus</td></tr><tr><td>Lufthansa</td><td>TLV ⇄ MIA</td><td data-v="1278.97">$1,278.97</td><td data-v="1">עצירה 1 (FRA)</td><td data-v="1015">16:55</td><td data-v="945">15:45</td><td>20.10</td><td>זמין · Economy Comfort Plus</td></tr><tr><td>Air Canada</td><td>TLV ⇄ MIA</td><td data-v="1360.77">$1,360.77</td><td data-v="1">עצירה 1 (YUL)</td><td data-v="982">16:22</td><td data-v="1215">20:15</td><td>20.10</td><td>זמין · Economy Flex</td></tr><tr><td>Austrian</td><td>TLV ⇄ MIA</td><td data-v="1545.57">$1,545.57</td><td data-v="2">2 עצירות (VIE+FRA)</td><td data-v="1620">27:00</td><td data-v="1085">18:05</td><td>20.10</td><td>זמין · Economy Comfort Plus, 27h outbound</td></tr><tr><td>Air France</td><td>TLV ⇄ MIA</td><td data-v="2103.77">$2,103.77</td><td data-v="1">עצירה 1 (AMS/CDG)</td><td data-v="995">16:35</td><td data-v="1940">32:20</td><td>19.10</td><td>זמין · Flex; return 32:20h via CDG (overnight at own expense)</td></tr><tr><td>British Airways</td><td>TLV ⇄ MIA</td><td data-v="2841.57">$2,841.57</td><td data-v="1">עצירה 1 (LHR)</td><td data-v="1210">20:10</td><td data-v="1335">22:15</td><td>13.10</td><td>זמין · Economy Semi-Flex</td></tr><tr><td>El Al</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No seats shown for 7–20.10</td></tr><tr><td>Delta</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 21.9.2027)</td></tr><tr><td>United</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 27.9.2027)</td></tr><tr><td>American</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 21.9.2027)</td></tr><tr><td>Emirates</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No availability; TLV codeshare suspended until further notice</td></tr><tr><td>Etihad</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered as a bookable destination</td></tr><tr><td>SAS</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No flights found for 7–20.10</td></tr><tr><td>Iberia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 dates not selectable (calendar ends Aug/Sep 2027)</td></tr><tr><td>Air Europa</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>18.10</td><td>נחסם בבדיקה · Site error on repeated searches (not a block, not no-flights)</td></tr><tr><td>Air Serbia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · No TLV origin at all in booking widget</td></tr><tr><td>Ethiopian</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not selectable (calendar ends Sep 2027)</td></tr><tr><td>Air India</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No flights found for 7–20.10</td></tr><tr><td>EgyptAir</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>24.10</td><td>אין טיסות · TLV origin exists, but no flights found for 7–24.10</td></tr><tr><td>Condor</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · No TLV→MIA route in booking engine (not a block)</td></tr><tr><td>Brussels Airlines</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No Brussels-operated TLV departure 7.10 (only LH/SWISS/Austrian shown)</td></tr><tr><td>Arkia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered (NYC is the only US destination)</td></tr><tr><td>Israir</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered</td></tr></tbody>
+      <tbody><tr><td>LOT</td><td>TLV ⇄ MIA</td><td data-v="970.37">$970.37<span class="badge">הזול ביותר</span></td><td data-v="1">עצירה 1 (WAW)</td><td data-v="2275">37:55</td><td data-v="1030">17:10</td><td>20.10</td><td>זמין · Economy Saver — 8kg cabin only, no checked bag, change for a fee, non-refundable</td></tr><tr><td>ITA</td><td>TLV ⇄ MIA</td><td data-v="985.37">$985.37</td><td data-v="1">עצירה 1 (FCO)</td><td data-v="1020">17:00</td><td data-v="1055">17:35</td><td>20.10</td><td>זמין · Economy Comfort</td></tr><tr><td>SWISS</td><td>TLV ⇄ MIA</td><td data-v="1170.97">$1,170.97</td><td data-v="1">עצירה 1 (ZRH)</td><td data-v="1175">19:35</td><td data-v="860">14:20</td><td>20.10</td><td>זמין · Economy Comfort Plus</td></tr><tr><td>Lufthansa</td><td>TLV ⇄ MIA</td><td data-v="1278.97">$1,278.97</td><td data-v="1">עצירה 1 (FRA)</td><td data-v="1015">16:55</td><td data-v="945">15:45</td><td>20.10</td><td>זמין · Economy Comfort Plus</td></tr><tr><td>Air Canada</td><td>TLV ⇄ MIA</td><td data-v="1360.77">$1,360.77</td><td data-v="1">עצירה 1 (YUL)</td><td data-v="982">16:22</td><td data-v="1215">20:15</td><td>20.10</td><td>זמין · Economy Flex</td></tr><tr><td>Austrian</td><td>TLV ⇄ MIA</td><td data-v="1545.57">$1,545.57</td><td data-v="2">2 עצירות (VIE+FRA)</td><td data-v="1620">27:00</td><td data-v="1085">18:05</td><td>20.10</td><td>זמין · Economy Comfort Plus, 27h outbound</td></tr><tr><td>Air France</td><td>TLV ⇄ MIA</td><td data-v="2103.77">$2,103.77</td><td data-v="1">עצירה 1 (AMS/CDG)</td><td data-v="995">16:35</td><td data-v="1940">32:20</td><td>19.10</td><td>זמין · Flex; return 32:20h via CDG (overnight at own expense)</td></tr><tr><td>British Airways</td><td>TLV ⇄ MIA</td><td data-v="2841.57">$2,841.57</td><td data-v="1">עצירה 1 (LHR)</td><td data-v="1210">20:10</td><td data-v="1335">22:15</td><td>13.10</td><td>זמין · Economy Semi-Flex</td></tr><tr><td>El Al</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No seats shown for 7–20.10</td></tr><tr><td>Delta</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 21.9.2027)</td></tr><tr><td>United</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 27.9.2027)</td></tr><tr><td>American</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 21.9.2027)</td></tr><tr><td>Emirates</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No availability; TLV codeshare suspended until further notice</td></tr><tr><td>Etihad</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered as a bookable destination</td></tr><tr><td>SAS</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No flights found for 7–20.10</td></tr><tr><td>Iberia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 dates not selectable (calendar ends Aug/Sep 2027)</td></tr><tr><td>Air Europa</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>18.10</td><td>נחסם בבדיקה · Site error on repeated searches (not a block, not no-flights)</td></tr><tr><td>Air Serbia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · No TLV origin at all in booking widget</td></tr><tr><td>Ethiopian</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not selectable (calendar ends Sep 2027)</td></tr><tr><td>Air India</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No flights found for 7–20.10</td></tr><tr><td>EgyptAir</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>24.10</td><td>אין טיסות · TLV origin exists, but no flights found for 7–24.10</td></tr><tr><td>Condor</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · No TLV→MIA route in booking engine (not a block)</td></tr><tr><td>Brussels Airlines</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No Brussels-operated TLV departure 7.10 (only LH/SWISS/Austrian shown)</td></tr><tr><td>Arkia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered (NYC is the only US destination)</td></tr><tr><td>Israir</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered</td></tr></tbody>
     </table>
   </div>
   
