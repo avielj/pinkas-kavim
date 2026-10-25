@@ -79,6 +79,12 @@
          align-items: center; gap: 6px; }
   .leg i { width: 14px; height: 4px; border-radius: 2px;
            display: inline-block; }
+  .airtable { width: 100%; border-collapse: collapse; font-size: .88rem;
+             margin-top: 10px; }
+  .airtable th, .airtable td { border-bottom: 1px solid #eef0f6;
+             padding: 8px 6px; text-align: right; }
+  .airtable th { color: #0b5cad; white-space: nowrap; }
+  .airtable td { font-variant-numeric: tabular-nums; }
   .foot { text-align: center; color: #8a93a8; font-size: .8rem; margin-top: 16px; }
 </style>
 </head>
@@ -86,7 +92,7 @@
 <header class="topbar">
   <h1>✈️ מעקב מחירי טיסות</h1>
   <div class="sub">תל אביב ⇄ מיאמי · אוקטובר 2027 · מחיר לראש, הלוך ושוב ·
-       הסריקה האחרונה: 25.10.2026 05:11</div>
+       הסריקה האחרונה: 25.10.2026 08:54</div>
 </header>
 <div class="sortbar" id="sortbar">
   <span>מיין לפי:</span>
@@ -132,7 +138,7 @@
         </div>
         <div class="f-price">
           <div class="p-adult">$1,012 <span>לראש</span></div>
-          <div class="p-other">ילד $1,002 · תינוק $101</div>
+          <div class="p-other">ילד — · תינוק —</div>
         </div>
       </div>
     </article>
@@ -173,7 +179,7 @@
         </div>
         <div class="f-price">
           <div class="p-adult">$1,012 <span>לראש</span></div>
-          <div class="p-other">ילד $1,002 · תינוק $101</div>
+          <div class="p-other">ילד — · תינוק —</div>
         </div>
       </div>
     </article>
@@ -214,7 +220,7 @@
         </div>
         <div class="f-price">
           <div class="p-adult">$1,012 <span>לראש</span></div>
-          <div class="p-other">ילד $1,002 · תינוק $101</div>
+          <div class="p-other">ילד — · תינוק —</div>
         </div>
       </div>
     </article>
@@ -255,7 +261,7 @@
         </div>
         <div class="f-price">
           <div class="p-adult">$1,012 <span>לראש</span></div>
-          <div class="p-other">ילד $1,002 · תינוק $101</div>
+          <div class="p-other">ילד — · תינוק —</div>
         </div>
       </div>
     </article>
@@ -296,7 +302,7 @@
         </div>
         <div class="f-price">
           <div class="p-adult">$1,170 <span>לראש</span></div>
-          <div class="p-other">ילד $1,019 · תינוק $117</div>
+          <div class="p-other">ילד — · תינוק —</div>
         </div>
       </div>
     </article>
@@ -337,7 +343,7 @@
         </div>
         <div class="f-price">
           <div class="p-adult">$1,170 <span>לראש</span></div>
-          <div class="p-other">ילד $1,019 · תינוק $117</div>
+          <div class="p-other">ילד — · תינוק —</div>
         </div>
       </div>
     </article>
@@ -345,14 +351,22 @@
 <div class="wrap">
   
   <div class="card">
-    <h2>✅ בדיקות ידניות מאומתות — אתרי חברות התעופה</h2>
-    <ul>
-      <li><b>לופטהנזה / SWISS · תל אביב ⇄ מיאמי · יציאה 7.10 · חזרה 19.10 · $1,088.97 למבוגר</b> · עצירה 1 בציריך · Economy Comfort Plus · סכום עגלה מאומת</li><li><b>ITA · תל אביב ⇄ מיאמי · יציאה 7.10 · חזרה 19.10 · $985.37 למבוגר</b> · עצירה 1 ברומא · Economy Comfort · נותרו 2 מושבים במחיר זה · סכום עגלה מאומת</li>
-      <li>אל על: אין הלוך-חזור זמין כרגע</li><li>החזרה האחרונה שניתן לבחור: 19.10</li><li><b>חזרה 24.10: טרם פורסמה בשום מקום</b></li>
-    </ul>
-    <p class="note">מחירים אלו הם בדיקות של מבוגר אחד מאתרי החברות
-    (סכומי עגלה מאומתים), והם נפרדים מטבלת המחירים לראש שלמעלה.</p>
+    <h2>🏷️ כל חברות התעופה — מחירי הלוך-חזור לראש</h2>
+    <p class="note">לחצו על כותרת עמודה למיון. מחירי בדיקה של מבוגר אחד,
+    סכומי עגלה מאומתים.</p>
+    <p class="note">משך ההרצה האחרונה: 49 דקות · התחילה 08:04 · הסתיימה 08:53</p>
+    <table class="airtable" id="airtable">
+      <thead><tr>
+        <th>חברה</th><th>מסלול</th>
+        <th data-sort="num">מחיר ↕</th>
+        <th data-sort="num">עצירות ↕</th>
+        <th data-sort="num">זמן טיסה הלוך ↕</th>
+        <th>חזרה שנבדקה</th><th>סטטוס</th>
+      </tr></thead>
+      <tbody><tr><td>LOT</td><td>TLV ⇄ MIA</td><td data-v="970.37">$970.37</td><td data-v="1">עצירה 1 (WAW)</td><td data-v="2275">37:55</td><td>20.10</td><td>זמין · Economy Saver — 8kg cabin only, no checked bag, change for a fee, non-refundable</td></tr><tr><td>ITA</td><td>TLV ⇄ MIA</td><td data-v="985.37">$985.37</td><td data-v="1">עצירה 1 (FCO)</td><td data-v="1020">17:00</td><td>20.10</td><td>זמין · Economy Comfort</td></tr><tr><td>SWISS</td><td>TLV ⇄ MIA</td><td data-v="1170.97">$1,170.97</td><td data-v="1">עצירה 1 (ZRH)</td><td data-v="1175">19:35</td><td>20.10</td><td>זמין · Economy Comfort Plus</td></tr><tr><td>Lufthansa</td><td>TLV ⇄ MIA</td><td data-v="1278.97">$1,278.97</td><td data-v="1">עצירה 1 (FRA)</td><td data-v="1015">16:55</td><td>20.10</td><td>זמין · Economy Comfort Plus</td></tr><tr><td>Air Canada</td><td>TLV ⇄ MIA</td><td data-v="1360.77">$1,360.77</td><td data-v="1">עצירה 1 (YUL)</td><td data-v="982">16:22</td><td>20.10</td><td>זמין · Economy Flex</td></tr><tr><td>Austrian</td><td>TLV ⇄ MIA</td><td data-v="1545.57">$1,545.57</td><td data-v="2">2 עצירות (VIE+FRA)</td><td data-v="1620">27:00</td><td>20.10</td><td>זמין · Economy Comfort Plus, 27h outbound</td></tr><tr><td>Air France</td><td>TLV ⇄ MIA</td><td data-v="2103.77">$2,103.77</td><td data-v="1">עצירה 1 (AMS/CDG)</td><td data-v="995">16:35</td><td>19.10</td><td>זמין · Flex; return 32:20h via CDG (overnight at own expense)</td></tr><tr><td>British Airways</td><td>TLV ⇄ MIA</td><td data-v="2841.57">$2,841.57</td><td data-v="1">עצירה 1 (LHR)</td><td data-v="1210">20:10</td><td>13.10</td><td>זמין · Economy Semi-Flex</td></tr><tr><td>El Al</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No seats shown for 7–20.10</td></tr><tr><td>Delta</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 21.9.2027)</td></tr><tr><td>United</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 27.9.2027)</td></tr><tr><td>American</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not yet open for sale (calendar ends 21.9.2027)</td></tr><tr><td>Emirates</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No availability; TLV codeshare suspended until further notice</td></tr><tr><td>Etihad</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered as a bookable destination</td></tr><tr><td>SAS</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No flights found for 7–20.10</td></tr><tr><td>Iberia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 dates not selectable (calendar ends Aug/Sep 2027)</td></tr><tr><td>Air Europa</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td>18.10</td><td>נחסם בבדיקה · Site error on repeated searches (not a block, not no-flights)</td></tr><tr><td>Air Serbia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · No TLV origin at all in booking widget</td></tr><tr><td>Ethiopian</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>טרם פורסם · Oct 2027 not selectable (calendar ends Sep 2027)</td></tr><tr><td>Air India</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No flights found for 7–20.10</td></tr><tr><td>EgyptAir</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td>24.10</td><td>אין טיסות · TLV origin exists, but no flights found for 7–24.10</td></tr><tr><td>Condor</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · No TLV→MIA route in booking engine (not a block)</td></tr><tr><td>Brussels Airlines</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td>20.10</td><td>אין טיסות · No Brussels-operated TLV departure 7.10 (only LH/SWISS/Austrian shown)</td></tr><tr><td>Arkia</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered (NYC is the only US destination)</td></tr><tr><td>Israir</td><td>TLV ⇄ MIA</td><td data-v="1000000000">—</td><td data-v="99">—</td><td data-v="1000000000">—</td><td></td><td>אין טיסות · MIA not offered</td></tr></tbody>
+    </table>
   </div>
+  
   <div class="card kipur">
     <h2>🕯️ לוח כיפור</h2>
     <ul>
@@ -372,41 +386,43 @@
 <line x1="56" y1="77.5" x2="624" y2="77.5" class="grid"/><text x="48" y="81.5" class="ylab" text-anchor="end">$1,142</text>
 <line x1="56" y1="18.0" x2="624" y2="18.0" class="grid"/><text x="48" y="22.0" class="ylab" text-anchor="end">$1,194</text>
 <text x="56.0" y="286" class="xlab" text-anchor="middle">20.10</text>
-<text x="198.0" y="286" class="xlab" text-anchor="middle">21.10</text>
-<text x="340.0" y="286" class="xlab" text-anchor="middle">22.10</text>
-<text x="482.0" y="286" class="xlab" text-anchor="middle">23.10</text>
-<text x="624.0" y="286" class="xlab" text-anchor="middle">24.10</text>
-<polyline points="198.0,228.5 340.0,228.5 482.0,228.5 624.0,228.5" fill="none" stroke="#0b5cad" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="198.0" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 21.10 · $1,012</title></circle>
-<circle cx="340.0" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 22.10 · $1,012</title></circle>
-<circle cx="482.0" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 23.10 · $1,012</title></circle>
-<circle cx="624.0" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 24.10 · $1,012</title></circle>
-<polyline points="56.0,223.9 198.0,228.5 340.0,228.5 482.0,228.5 624.0,228.5" fill="none" stroke="#e07b39" stroke-width="2.5" stroke-linecap="round"/>
+<text x="150.7" y="286" class="xlab" text-anchor="middle">21.10</text>
+<text x="245.3" y="286" class="xlab" text-anchor="middle">22.10</text>
+<text x="340.0" y="286" class="xlab" text-anchor="middle">23.10</text>
+<text x="434.7" y="286" class="xlab" text-anchor="middle">24.10</text>
+<text x="529.3" y="286" class="xlab" text-anchor="middle">25.10</text>
+<text x="624.0" y="286" class="xlab" text-anchor="middle">25.10</text>
+<polyline points="150.7,228.5 245.3,228.5 340.0,228.5 434.7,228.5" fill="none" stroke="#0b5cad" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="150.7" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 21.10 · $1,012</title></circle>
+<circle cx="245.3" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 22.10 · $1,012</title></circle>
+<circle cx="340.0" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 23.10 · $1,012</title></circle>
+<circle cx="434.7" cy="228.5" r="4" fill="#0b5cad"><title>יציאה 7.10 · 24.10 · $1,012</title></circle>
+<polyline points="56.0,223.9 150.7,228.5 245.3,228.5 340.0,228.5 434.7,228.5" fill="none" stroke="#e07b39" stroke-width="2.5" stroke-linecap="round"/>
 <circle cx="56.0" cy="223.9" r="4" fill="#e07b39"><title>יציאה 8.10 · 20.10 · $1,016</title></circle>
-<circle cx="198.0" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 21.10 · $1,012</title></circle>
-<circle cx="340.0" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 22.10 · $1,012</title></circle>
-<circle cx="482.0" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 23.10 · $1,012</title></circle>
-<circle cx="624.0" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 24.10 · $1,012</title></circle>
-<polyline points="198.0,228.5 340.0,228.5 482.0,228.5 624.0,228.5" fill="none" stroke="#2ca66a" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="198.0" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 21.10 · $1,012</title></circle>
-<circle cx="340.0" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 22.10 · $1,012</title></circle>
-<circle cx="482.0" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 23.10 · $1,012</title></circle>
-<circle cx="624.0" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 24.10 · $1,012</title></circle>
-<polyline points="198.0,228.5 340.0,228.5 482.0,228.5 624.0,228.5" fill="none" stroke="#8e44ad" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="198.0" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 21.10 · $1,012</title></circle>
-<circle cx="340.0" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 22.10 · $1,012</title></circle>
-<circle cx="482.0" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 23.10 · $1,012</title></circle>
-<circle cx="624.0" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 24.10 · $1,012</title></circle>
-<polyline points="198.0,45.5 340.0,45.5 482.0,45.5 624.0,45.5" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="198.0" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 21.10 · $1,170</title></circle>
-<circle cx="340.0" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 22.10 · $1,170</title></circle>
-<circle cx="482.0" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 23.10 · $1,170</title></circle>
-<circle cx="624.0" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 24.10 · $1,170</title></circle>
-<polyline points="198.0,45.5 340.0,45.5 482.0,45.5 624.0,45.5" fill="none" stroke="#16a3a3" stroke-width="2.5" stroke-linecap="round"/>
-<circle cx="198.0" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 21.10 · $1,170</title></circle>
-<circle cx="340.0" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 22.10 · $1,170</title></circle>
-<circle cx="482.0" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 23.10 · $1,170</title></circle>
-<circle cx="624.0" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 24.10 · $1,170</title></circle>
+<circle cx="150.7" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 21.10 · $1,012</title></circle>
+<circle cx="245.3" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 22.10 · $1,012</title></circle>
+<circle cx="340.0" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 23.10 · $1,012</title></circle>
+<circle cx="434.7" cy="228.5" r="4" fill="#e07b39"><title>יציאה 8.10 · 24.10 · $1,012</title></circle>
+<polyline points="150.7,228.5 245.3,228.5 340.0,228.5 434.7,228.5" fill="none" stroke="#2ca66a" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="150.7" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 21.10 · $1,012</title></circle>
+<circle cx="245.3" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 22.10 · $1,012</title></circle>
+<circle cx="340.0" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 23.10 · $1,012</title></circle>
+<circle cx="434.7" cy="228.5" r="4" fill="#2ca66a"><title>יציאה 9.10 · 24.10 · $1,012</title></circle>
+<polyline points="150.7,228.5 245.3,228.5 340.0,228.5 434.7,228.5" fill="none" stroke="#8e44ad" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="150.7" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 21.10 · $1,012</title></circle>
+<circle cx="245.3" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 22.10 · $1,012</title></circle>
+<circle cx="340.0" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 23.10 · $1,012</title></circle>
+<circle cx="434.7" cy="228.5" r="4" fill="#8e44ad"><title>יציאה 10.10 · 24.10 · $1,012</title></circle>
+<polyline points="150.7,45.5 245.3,45.5 340.0,45.5 434.7,45.5" fill="none" stroke="#c0392b" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="150.7" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 21.10 · $1,170</title></circle>
+<circle cx="245.3" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 22.10 · $1,170</title></circle>
+<circle cx="340.0" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 23.10 · $1,170</title></circle>
+<circle cx="434.7" cy="45.5" r="4" fill="#c0392b"><title>יציאה 11.10 · 24.10 · $1,170</title></circle>
+<polyline points="150.7,45.5 245.3,45.5 340.0,45.5 434.7,45.5" fill="none" stroke="#16a3a3" stroke-width="2.5" stroke-linecap="round"/>
+<circle cx="150.7" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 21.10 · $1,170</title></circle>
+<circle cx="245.3" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 22.10 · $1,170</title></circle>
+<circle cx="340.0" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 23.10 · $1,170</title></circle>
+<circle cx="434.7" cy="45.5" r="4" fill="#16a3a3"><title>יציאה 12.10 · 24.10 · $1,170</title></circle>
 </svg>
 <div class="legend">
 <span class="leg"><i style="background:#0b5cad"></i>יציאה 7.10</span>
@@ -416,7 +432,7 @@
 <span class="leg"><i style="background:#c0392b"></i>יציאה 11.10</span>
 <span class="leg"><i style="background:#16a3a3"></i>יציאה 12.10</span>
 </div>
-    <p class="note">חזרה 13.10 — הקרובה ביותר שפורסמה (טרם פורסם 24.10). היעד: 23.10 בערב או 24.10.</p>
+    <p class="note"></p>
     <p class="note">ההיסטוריה רק גדלה — מדידות קיימות לעולם לא נמחקות.</p>
   </div>
 </div>
@@ -447,6 +463,29 @@
     var open = b.textContent.indexOf('סגור') === 0;
     dets.forEach(function(d) { d.hidden = open; });
     b.textContent = open ? 'פירוט המסלול' : 'סגור פירוט';
+  });
+})();
+</script>
+<script>
+(function() {
+  var t = document.getElementById('airtable');
+  if (!t) return;
+  t.querySelectorAll('th[data-sort]').forEach(function(th) {
+    th.style.cursor = 'pointer';
+    th.addEventListener('click', function() {
+      var idx = Array.prototype.indexOf.call(
+        th.parentNode.children, th);
+      var tb = t.querySelector('tbody');
+      var rows = Array.prototype.slice.call(tb.querySelectorAll('tr'));
+      var asc = th.getAttribute('data-dir') !== 'asc';
+      rows.sort(function(a, c) {
+        var av = parseFloat(a.children[idx].getAttribute('data-v') || '0');
+        var cv = parseFloat(c.children[idx].getAttribute('data-v') || '0');
+        return asc ? av - cv : cv - av;
+      });
+      rows.forEach(function(r) { tb.appendChild(r); });
+      th.setAttribute('data-dir', asc ? 'asc' : 'desc');
+    });
   });
 })();
 </script>
